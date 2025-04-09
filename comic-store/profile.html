@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - ComicZone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ComicZone</a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="catalog.html"><i class="fas fa-book"></i> Catálogo</a>
+                <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Carrito <span class="cart-count">0</span></a>
+                <a href="profile.html" class="active"><i class="fas fa-user"></i> Perfil</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Perfil de usuario -->
+    <section class="user-profile">
+        <div class="container">
+            <div class="profile-header">
+                <h1>Mi Perfil</h1>
+                <div class="profile-actions">
+                    <button class="btn btn-outline" id="editProfileBtn"><i class="fas fa-edit"></i> Editar Perfil</button>
+                    <a href="login.html" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <div class="avatar-container">
+                        <img src="images/default-avatar.jpg" alt="Avatar" class="profile-avatar">
+                        <button class="avatar-edit-btn"><i class="fas fa-camera"></i></button>
+                    </div>
+                    <h2 class="username">Juan Pérez</h2>
+                    <p class="member-since">Miembro desde: Enero 2023</p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">Pedidos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">850</div>
+                            <div class="stat-label">Puntos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-main">
+                    <div class="profile-section">
+                        <h2><i class="fas fa-user-circle"></i> Información Personal</h2>
+                        <div class="profile-info">
+                            <div class="info-row">
+                                <span class="info-label">Nombre:</span>
+                                <span class="info-value">Juan Pérez</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Correo:</span>
+                                <span class="info-value">juan.perez@ejemplo.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Teléfono:</span>
+                                <span class="info-value">+52 55 1234 5678</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Fecha de Nacimiento:</span>
+                                <span class="info-value">15/03/1990</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h2><i class="fas fa-map-marker-alt"></i> Dirección Principal</h2>
+                        <div class="profile-info">
+                            <div class="info-row">
+                                <span class="info-label">Dirección:</span>
+                                <span class="info-value">Calle Falsa 123, Col. Centro</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Ciudad:</span>
+                                <span class="info-value">Ciudad de México</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Código Postal:</span>
+                                <span class="info-value">06000</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">País:</span>
+                                <span class="info-value">México</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h2><i class="fas fa-history"></i> Historial Reciente</h2>
+                        <div class="recent-orders">
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <span class="order-id">Pedido #10025</span>
+                                    <span class="order-date">15/06/2023</span>
+                                    <span class="order-status completed">Completado</span>
+                                </div>
+                                <div class="order-products">
+                                    <span>3 productos</span>
+                                    <span class="order-total">$1,450.00</span>
+                                </div>
+                                <a href="#" class="order-details">Ver detalles</a>
+                            </div>
+                            
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <span class="order-id">Pedido #10018</span>
+                                    <span class="order-date">02/06/2023</span>
+                                    <span class="order-status shipped">Enviado</span>
+                                </div>
+                                <div class="order-products">
+                                    <span>2 productos</span>
+                                    <span class="order-total">$899.00</span>
+                                </div>
+                                <a href="#" class="order-details">Ver detalles</a>
+                            </div>
+                        </div>
+                        <a href="orders.html" class="btn btn-outline view-all-orders">Ver todos los pedidos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>ComicZone</h3>
+                <p>Tu tienda favorita de cómics y figuras de acción desde 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="cart.html">Carrito</a></li>
+                    <li><a href="profile.html">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@comiczone.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 ComicZone. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Funcionalidad básica del perfil
+        document.addEventListener('DOMContentLoaded', function() {
+            // Botón de editar perfil
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            
+            editProfileBtn.addEventListener('click', function() {
+                alert('Funcionalidad de edición de perfil estará disponible pronto.');
+            });
+            
+            // Botón de editar avatar
+            const avatarEditBtn = document.querySelector('.avatar-edit-btn');
+            
+            avatarEditBtn.addEventListener('click', function() {
+                alert('Podrás cambiar tu foto de perfil en la próxima actualización.');
+            });
+        });
+    </script>
+</body>
+</html>

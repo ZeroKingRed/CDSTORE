@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleccionables - ComicZone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ComicZone</a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="catalog.html"><i class="fas fa-book"></i> Catálogo</a>
+                <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Carrito <span class="cart-count">0</span></a>
+                <a href="login.html"><i class="fas fa-user"></i> Perfil</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner de categoría -->
+    <section class="category-banner" style="background: linear-gradient(rgba(106, 27, 154, 0.8), rgba(106, 27, 154, 0.8)), url('../images/collectibles-banner.jpg');">
+        <div class="container">
+            <h1>Coleccionables</h1>
+            <p>Artículos exclusivos para los verdaderos fans</p>
+        </div>
+    </section>
+
+    <!-- Productos de la categoría -->
+    <section class="category-products">
+        <div class="container">
+            <div class="category-description">
+                <h2>Ediciones especiales y limitadas</h2>
+                <p>Para los coleccionistas más exigentes, ofrecemos una selección de artículos exclusivos, ediciones limitadas y sets especiales que son verdaderas piezas de colección.</p>
+            </div>
+            
+            <div class="products-grid" id="collectiblesGrid">
+                <!-- Los coleccionables se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>ComicZone</h3>
+                <p>Tu tienda favorita de cómics y figuras de acción desde 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="cart.html">Carrito</a></li>
+                    <li><a href="login.html">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@comiczone.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 ComicZone. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Datos de productos (deberían estar en script.js)
+        const products = [
+            {
+                id: 9,
+                name: "Funko Pop! Batman",
+                price: 14.99,
+                image: "images/product9.jpg",
+                category: "Coleccionables",
+                publisher: "DC Comics"
+            },
+            {
+                id: 12,
+                name: "Estatuilla Hellboy",
+                price: 79.99,
+                image: "images/product12.jpg",
+                category: "Coleccionables",
+                publisher: "Dark Horse"
+            },
+            {
+                id: 15,
+                name: "Set Coleccionista Spider-Man",
+                price: 129.99,
+                image: "images/product15.jpg",
+                category: "Coleccionables",
+                publisher: "Marvel"
+            },
+            {
+                id: 16,
+                name: "Edición Oro Superman",
+                price: 89.99,
+                image: "images/product16.jpg",
+                category: "Coleccionables",
+                publisher: "DC Comics"
+            }
+        ];
+
+        // Filtrar y mostrar solo coleccionables
+        document.addEventListener('DOMContentLoaded', function() {
+            const collectibles = products.filter(product => product.category === "Coleccionables");
+            const collectiblesGrid = document.getElementById('collectiblesGrid');
+            
+            if (collectibles.length === 0) {
+                collectiblesGrid.innerHTML = '<p class="no-products">Actualmente no hay coleccionables disponibles.</p>';
+                return;
+            }
+            
+            collectibles.forEach(item => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                if (item.originalPrice) {
+                    productCard.innerHTML += `<div class="badge">Oferta</div>`;
+                }
+                
+                productCard.innerHTML += `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                `;
+                
+                if (item.originalPrice) {
+                    productCard.innerHTML += `
+                        <div class="price">
+                            <span class="original-price">$${item.originalPrice.toFixed(2)}</span>
+                            <span class="discounted-price">$${item.price.toFixed(2)}</span>
+                        </div>
+                    `;
+                } else {
+                    productCard.innerHTML += `
+                        <div class="price">$${item.price.toFixed(2)}</div>
+                    `;
+                }
+                
+                productCard.innerHTML += `
+                    <button class="btn btn-secondary add-to-cart" data-product-id="${item.id}">Agregar al carrito</button>
+                    <a href="product-detail.html?id=${item.id}" class="btn btn-outline">Ver Detalles</a>
+                `;
+                
+                collectiblesGrid.appendChild(productCard);
+            });
+            
+            // Configurar botones "Agregar al carrito"
+            setupAddToCartButtons();
+        });
+    </script>
+</body>
+</html>

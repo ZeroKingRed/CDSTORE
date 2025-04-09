@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicZone - Tu tienda de cómics y figuras</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ComicZone</a>
+            <div class="nav-links">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a>
+                <a href="catalog.html"><i class="fas fa-book"></i> Catálogo</a>
+                <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Carrito <span class="cart-count">0</span></a>
+                <a href="profile.html"><i class="fas fa-user"></i> Mi Perfil</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner promocional -->
+    <section class="banner">
+        <div class="container">
+            <h1>Colecciona tus cómics y figuras favoritas</h1>
+            <p>Encuentra las mejores ediciones y figuras de acción de tus superhéroes preferidos</p>
+            <div class="banner-actions">
+                <a href="catalog.html" class="btn btn-primary">Explorar Tienda</a>
+                <a href="profile.html" class="btn btn-outline">Mi Cuenta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías destacadas -->
+    <section class="featured-categories">
+        <div class="container">
+            <h2>Explora Nuestras Categorías</h2>
+            <div class="categories-grid">
+                <!-- Categoría Cómics -->
+                <a href="comics.html" class="category-card">
+                    <img src="images/comics-category.jpg" alt="Cómics">
+                    <div class="category-overlay">
+                        <h3>Cómics</h3>
+                        <p>Descubre las mejores historias gráficas</p>
+                        <span class="btn btn-outline">Ver más</span>
+                    </div>
+                </a>
+                
+                <!-- Categoría Figuras -->
+                <a href="figures.html" class="category-card">
+                    <img src="images/figures-category.jpg" alt="Figuras de Acción">
+                    <div class="category-overlay">
+                        <h3>Figuras de Acción</h3>
+                        <p>Colecciona a tus personajes favoritos</p>
+                        <span class="btn btn-outline">Ver más</span>
+                    </div>
+                </a>
+                
+                <!-- Categoría Merchandising -->
+                <a href="merch.html" class="category-card">
+                    <img src="images/merch-category.jpg" alt="Merchandising">
+                    <div class="category-overlay">
+                        <h3>Merchandising</h3>
+                        <p>Lleva a tus héroes contigo</p>
+                        <span class="btn btn-outline">Ver más</span>
+                    </div>
+                </a>
+                
+                <!-- Categoría Coleccionables -->
+                <a href="collectibles.html" class="category-card">
+                    <img src="images/collectibles-category.jpg" alt="Coleccionables">
+                    <div class="category-overlay">
+                        <h3>Coleccionables</h3>
+                        <p>Artículos exclusivos para fans</p>
+                        <span class="btn btn-outline">Ver más</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Productos Destacados</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="badge">Oferta</div>
+                    <img src="images/product1.jpg" alt="Batman: The Dark Knight Returns">
+                    <h3>Batman: The Dark Knight Returns</h3>
+                    <div class="price">
+                        <span class="original-price">$29.99</span>
+                        <span class="discounted-price">$24.99</span>
+                    </div>
+                    <button class="btn btn-secondary add-to-cart" data-product-id="1">Agregar al carrito</button>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <img src="images/product2.jpg" alt="Spider-Man Figura de Acción">
+                    <h3>Spider-Man Figura de Acción</h3>
+                    <div class="price">$39.99</div>
+                    <button class="btn btn-secondary add-to-cart" data-product-id="2">Agregar al carrito</button>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="badge">Nuevo</div>
+                    <img src="images/product3.jpg" alt="Watchmen Edición Deluxe">
+                    <h3>Watchmen Edición Deluxe</h3>
+                    <div class="price">$49.99</div>
+                    <button class="btn btn-secondary add-to-cart" data-product-id="3">Agregar al carrito</button>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <img src="images/product4.jpg" alt="Iron Man Mark LXXXV Figura">
+                    <h3>Iron Man Mark LXXXV Figura</h3>
+                    <div class="price">$59.99</div>
+                    <button class="btn btn-secondary add-to-cart" data-product-id="4">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de acceso rápido al perfil -->
+    <section class="quick-access">
+        <div class="container">
+            <div class="quick-access-card">
+                <div class="quick-access-content">
+                    <h2>¿Ya tienes una cuenta?</h2>
+                    <p>Accede a tu perfil para ver tus pedidos, guardar tus favoritos y administrar tu información personal.</p>
+                    <div class="quick-access-buttons">
+                        <a href="profile.html" class="btn btn-primary">Ir a mi perfil</a>
+                        <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+                    </div>
+                </div>
+                <div class="quick-access-image">
+                    <img src="images/profile-access.jpg" alt="Acceso al perfil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>ComicZone</h3>
+                <p>Tu tienda favorita de cómics y figuras de acción desde 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="cart.html">Carrito</a></li>
+                    <li><a href="profile.html">Mi Perfil</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@comiczone.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 ComicZone. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

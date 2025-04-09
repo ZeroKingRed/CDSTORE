@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comic Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1a0129;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #320a4e;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #9b59b6;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    .menu a:hover {
+      color: #9b59b6;
+    }
+    .cart-button {
+      background: #9b59b6;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .banner {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #320a4e, #9b59b6);
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .product, .offer {
+      background: #461f6f;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      flex: 0 0 30%;
+    }
+    .product img, .offer img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: white;
+    }
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 1;
+      font-size: 1.2rem;
+    }
+    .carousel-button.prev { left: 0; }
+    .carousel-button.next { right: 0; }
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      padding: 2rem;
+      background: #320a4e;
+      margin-top: 2rem;
+      border-radius: 10px;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .newsletter {
+      text-align: center;
+      padding: 2rem;
+      background: #320a4e;
+      margin-top: 2rem;
+    }
+    .newsletter input {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      width: 250px;
+      margin-right: 1rem;
+    }
+    .newsletter button {
+      padding: 0.5rem 1rem;
+      background: #9b59b6;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #320a4e;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Comic Store</div>
+    <nav class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Cómics</a>
+      <a href="#">Figuras</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <button class="cart-button">🛒 Carrito</button>
+  </header>
+
+  <section class="banner">
+    <h1>Descubre el universo de los cómics y figuras de acción</h1>
+    <p>Las mejores colecciones de cómics y figuras de tus personajes favoritos.</p>
+  </section>
+
+  <div class="container">
+    <!-- Productos Destacados -->
+    <h2>Productos Destacados</h2>
+    <div class="carousel-container" id="destacados">
+      <button class="carousel-button prev">&#10094;</button>
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <a class="product" href="producto.html?title=Batman:+The+Dark+Knight+Returns&price=19.99&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FOIG1.EqmaJlZqTVQW3xFuneG5%3Fpid%3DImgGn&desc=Cómic+épico+de+Batman+en+su+regreso+como+vigilante.">
+            <img src="https://th.bing.com/th/id/OIG1.EqmaJlZqTVQW3xFuneG5?pid=ImgGn" alt="Batman" />
+            <p>Batman: The Dark Knight Returns - $19.99</p>
+          </a>
+          <a class="product" href="producto.html?title=Spider-Man+Premium&price=59.99&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FOIG3.z.SRFZS9OLwWDXNeB27l%3Fpid%3DImgGn&desc=Figura+premium+del+hombre+araña.">
+            <img src="https://th.bing.com/th/id/OIG3.z.SRFZS9OLwWDXNeB27l?pid=ImgGn" alt="Spider-Man" />
+            <p>Spider-Man Premium - $59.99</p>
+          </a>
+          <a class="product" href="producto.html?title=Iron+Man+Mark+LXXXV&price=63.50&img=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61mCRtz5u2L._AC_SY879_.jpg&desc=Figura+detallada+de+Iron+Man+Endgame.">
+            <img src="https://m.media-amazon.com/images/I/61mCRtz5u2L._AC_SY879_.jpg" alt="Iron Man" />
+            <p>Iron Man Mark LXXXV - $63.50</p>
+          </a>
+        </div>
+      </div>
+      <button class="carousel-button next">&#10095;</button>
+    </div>
+
+    <!-- Más Vendidos -->
+    <h2>Más Vendidos</h2>
+    <div class="carousel-container" id="masvendidos">
+      <button class="carousel-button prev">&#10094;</button>
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <a class="product" href="producto.html?title=Deadpool+Kills+Marvel+Universe&price=18.50&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.03de302abf3c3be2dd3dbb61f937f64c%3Frik%3D5KkDCayL7z5LVg&desc=Deadpool+masacra+a+todo+el+universo+Marvel+en+esta+saga+oscura.">
+            <img src="https://th.bing.com/th/id/R.03de302abf3c3be2dd3dbb61f937f64c?rik=5KkDCayL7z5LVg" alt="Deadpool" />
+            <p>Deadpool Kills Marvel Universe - $18.50</p>
+          </a>
+          <a class="product" href="producto.html?title=Thanos+Deluxe&price=72.00&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FOIG4.H2gAwg_jN2RD0HgJY3ym%3Fpid%3DImgGn&desc=Figura+de+Thanos+con+guantelete+y+detalles+deluxe.">
+            <img src="https://th.bing.com/th/id/OIG4.H2gAwg_jN2RD0HgJY3ym?pid=ImgGn" alt="Thanos" />
+            <p>Thanos Deluxe - $72.00</p>
+          </a>
+          <a class="product" href="producto.html?title=Venom+Origins&price=14.99&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FOIP.BEiOC4tcBqgRJSPmlBmuNwHaLH%3Fpid%3DImgDet&rs=1&desc=El+origen+de+Venom+en+una+edición+intensa.">
+            <img src="https://th.bing.com/th/id/OIP.BEiOC4tcBqgRJSPmlBmuNwHaLH?pid=ImgDet&rs=1" alt="Venom" />
+            <p>Venom Origins - $14.99</p>
+          </a>
+        </div>
+      </div>
+      <button class="carousel-button next">&#10095;</button>
+    </div>
+
+    <!-- Ofertas Especiales -->
+    <h2>Ofertas Especiales</h2>
+    <div class="carousel-container" id="ofertas">
+      <button class="carousel-button prev">&#10094;</button>
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <a class="offer" href="producto.html?title=Combo+DC+Heroes&price=49.99&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.5019dfbdbd734ad49a4691ee39ea3944%3Frik%3Dmy6Fhi6Su3bPuw&desc=Paquete+especial+con+Batman,+Superman+y+Wonder+Woman.">
+            <img src="https://th.bing.com/th/id/R.5019dfbdbd734ad49a4691ee39ea3944?rik=my6Fhi6Su3bPuw" alt="Combo DC" />
+            <p>Combo DC Heroes - $49.99</p>
+          </a>
+          <a class="offer" href="producto.html?title=Spider-Verse+Pack&price=44.99&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FOIG2.uVAFzN7hguKoOPxW8yYl%3Fpid%3DImgGn&desc=Ofertas+por+tiempo+limitado+de+Spider-Man+y+sus+variantes.">
+            <img src="https://th.bing.com/th/id/OIG2.uVAFzN7hguKoOPxW8yYl?pid=ImgGn" alt="Spider-Verse" />
+            <p>Spider-Verse Pack - $44.99</p>
+          </a>
+          <a class="offer" href="producto.html?title=Guardianes+de+la+Galaxia+Set&price=39.95&img=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FOIP.gZIfQ7lFxSLzrXerR1nGVgHaEK%3Fpid%3DImgDet&rs=1&desc=Set+de+figuras+de+los+Guardianes+en+oferta.">
+            <img src="https://th.bing.com/th/id/OIP.gZIfQ7lFxSLzrXerR1nGVgHaEK?pid=ImgDet&rs=1" alt="Guardianes" />
+            <p>Guardianes de la Galaxia Set - $39.95</p>
+          </a>
+        </div>
+      </div>
+      <button class="carousel-button next">&#10095;</button>
+    </div>
+  </div>
+
+  <section class="newsletter">
+    <h2>Suscríbete a nuestro boletín</h2>
+    <p>Recibe las últimas noticias, ofertas exclusivas y contenido especial directamente en tu correo.</p>
+    <input type="email" placeholder="Tu correo electrónico" />
+    <button>Suscribirse</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Comic Store - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function setupCarousel(containerSelector) {
+      const container = document.querySelector(containerSelector);
+      const track = container.querySelector('.carousel-track');
+      const slides = container.querySelectorAll('.carousel-slide');
+      let currentIndex = 0;
+
+      container.querySelector('.next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      });
+
+      container.querySelector('.prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupCarousel('#destacados');
+      setupCarousel('#masvendidos');
+      setupCarousel('#ofertas');
+    });
+  </script>
+</body>
+</html>

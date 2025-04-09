@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómics - ComicZone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ComicZone</a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                <a href="catalog.html"><i class="fas fa-book"></i> Catálogo</a>
+                <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Carrito <span class="cart-count">0</span></a>
+                <a href="login.html"><i class="fas fa-user"></i> Perfil</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner de categoría -->
+    <section class="category-banner" style="background: linear-gradient(rgba(106, 27, 154, 0.8), rgba(106, 27, 154, 0.8)), url('../images/comics-banner.jpg');">
+        <div class="container">
+            <h1>Cómics</h1>
+            <p>Descubre las mejores historias gráficas de tus superhéroes favoritos</p>
+        </div>
+    </section>
+
+    <!-- Productos de la categoría -->
+    <section class="category-products">
+        <div class="container">
+            <div class="category-description">
+                <h2>Explora nuestro universo de cómics</h2>
+                <p>En ComicZone tenemos la mejor selección de cómics, desde los clásicos atemporales hasta las últimas novedades. Descubre historias épicas, ediciones especiales y colecciones completas de Marvel, DC Comics, Image Comics y más.</p>
+            </div>
+            
+            <div class="products-grid" id="comicsGrid">
+                <!-- Los cómics se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>ComicZone</h3>
+                <p>Tu tienda favorita de cómics y figuras de acción desde 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="cart.html">Carrito</a></li>
+                    <li><a href="login.html">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> info@comiczone.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 ComicZone. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Datos de productos (deberían estar en script.js)
+        const products = [
+            {
+                id: 1,
+                name: "Batman: The Dark Knight Returns",
+                price: 24.99,
+                originalPrice: 29.99,
+                image: "images/product1.jpg",
+                category: "Cómics",
+                publisher: "DC Comics"
+            },
+            {
+                id: 3,
+                name: "Watchmen Edición Deluxe",
+                price: 49.99,
+                image: "images/product3.jpg",
+                category: "Cómics",
+                publisher: "DC Comics"
+            },
+            {
+                id: 5,
+                name: "The Walking Dead Vol. 1",
+                price: 19.99,
+                image: "images/product5.jpg",
+                category: "Cómics",
+                publisher: "Image Comics"
+            },
+            {
+                id: 7,
+                name: "Saga Vol. 1",
+                price: 24.99,
+                image: "images/product7.jpg",
+                category: "Cómics",
+                publisher: "Image Comics"
+            }
+        ];
+
+        // Filtrar y mostrar solo cómics
+        document.addEventListener('DOMContentLoaded', function() {
+            const comics = products.filter(product => product.category === "Cómics");
+            const comicsGrid = document.getElementById('comicsGrid');
+            
+            if (comics.length === 0) {
+                comicsGrid.innerHTML = '<p class="no-products">Actualmente no hay cómics disponibles.</p>';
+                return;
+            }
+            
+            comics.forEach(comic => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                if (comic.originalPrice) {
+                    productCard.innerHTML += `<div class="badge">Oferta</div>`;
+                }
+                
+                productCard.innerHTML += `
+                    <img src="${comic.image}" alt="${comic.name}">
+                    <h3>${comic.name}</h3>
+                `;
+                
+                if (comic.originalPrice) {
+                    productCard.innerHTML += `
+                        <div class="price">
+                            <span class="original-price">$${comic.originalPrice.toFixed(2)}</span>
+                            <span class="discounted-price">$${comic.price.toFixed(2)}</span>
+                        </div>
+                    `;
+                } else {
+                    productCard.innerHTML += `
+                        <div class="price">$${comic.price.toFixed(2)}</div>
+                    `;
+                }
+                
+                productCard.innerHTML += `
+                    <button class="btn btn-secondary add-to-cart" data-product-id="${comic.id}">Agregar al carrito</button>
+                    <a href="product-detail.html?id=${comic.id}" class="btn btn-outline">Ver Detalles</a>
+                `;
+                
+                comicsGrid.appendChild(productCard);
+            });
+            
+            // Configurar botones "Agregar al carrito"
+            setupAddToCartButtons();
+        });
+    </script>
+</body>
+</html>

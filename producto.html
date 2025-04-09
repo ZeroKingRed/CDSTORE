@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalles del Producto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1a0129;
+      color: white;
+    }
+    header {
+      background: #320a4e;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #9b59b6;
+    }
+    .cart-button {
+      background: #9b59b6;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #320a4e;
+      border-radius: 10px;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .product-image {
+      flex: 1 1 300px;
+    }
+    .product-image img {
+      width: 100%;
+      border-radius: 10px;
+      background: white;
+    }
+    .product-details {
+      flex: 1 1 300px;
+    }
+    .product-details h2 {
+      color: #e1caff;
+      margin-bottom: 1rem;
+    }
+    .product-details p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .price {
+      font-size: 1.5rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+    .buttons button {
+      padding: 0.8rem 1.5rem;
+      margin-right: 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .buy-button {
+      background-color: #27ae60;
+      color: white;
+    }
+    .cart-button-add {
+      background-color: #9b59b6;
+      color: white;
+    }
+    footer {
+      text-align: center;
+      background: #320a4e;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Comic Store</div>
+    <button class="cart-button">🛒 Carrito</button>
+  </header>
+
+  <div class="container">
+    <div class="product-image">
+      <img id="product-img" src="" alt="Producto">
+    </div>
+    <div class="product-details">
+      <h2 id="product-title">Título del Producto</h2>
+      <p id="product-description">Descripción detallada del producto seleccionado.</p>
+      <p class="price" id="product-price">$00.00</p>
+      <div class="buttons">
+        <button class="buy-button">Comprar</button>
+        <button class="cart-button-add">Agregar al Carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Comic Store - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+    const price = params.get('price');
+    const img = params.get('img');
+    const desc = params.get('desc');
+
+    if (title && price && img) {
+      document.getElementById('product-title').textContent = decodeURIComponent(title);
+      document.getElementById('product-price').textContent = `$${price}`;
+      document.getElementById('product-img').src = decodeURIComponent(img);
+      document.getElementById('product-description').textContent = decodeURIComponent(desc || "No se proporcionó descripción.");
+    }
+  </script>
+</body>
+</html>
